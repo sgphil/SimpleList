@@ -176,5 +176,68 @@ public class SimpleList {
 		return -1;
 	}
 	
+/**
+ * 	Adds elements to the end of the array. If the array becomes full as we add the last element,
+ *  the array size is increased by 50%. 
+ */
+	public void append (int number) {
+		
+		if(count < list.length) {
+			System.out.println("count is: "+count);
+			count ++;
+			list[count-1] = number;
+			System.out.println("count after is: "+count);
+			System.out.println("number is "+number);
+			
+			
+		}else {
+			
+			count++;
+			int newSize = (int) (count * 0.5) + list.length;
+			int[] newlist = new int[newSize];
+			
+			for(int index = 0; index < list.length; index++) {
+				
+				newlist[index]=list[index];
+			}
+			
+			newlist[list.length]=number;
+			
+			list = new int[newSize];
+			
+			for(int index = 0; index < list.length; index++) {
+				
+				list[index]=newlist[index];
+				
+			}
+		}		
+	}
+	
+/**
+ * Returns the first element in the array.	
+ * 
+ * @return			the first element in the array, list.
+ */
+	public int first() {
+		return list[0];
+	}
+	
+/**
+ * Returns the last element in the array
+ * 
+ * @return			the last element in the array, list.
+ */
+	public int last() {
+		return list[count-1];
+	}
+	
+/**
+ * Returns current number of possible positions in the array.
+ * 
+ * @return			the size of the array, list.
+ */
+	public int size() {
+		return list.length;
+	}
 	
 }
