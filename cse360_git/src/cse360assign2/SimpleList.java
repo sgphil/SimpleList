@@ -109,7 +109,7 @@ public class SimpleList {
 			}
 		}
 		
-		if((list.length-count) > (list.length * 0.25) && (list.length >= 1)) {
+		if((list.length-count) > (list.length * 0.25) && (list.length > 1)) {
 			
 			int newSize = (int) (list.length - (int) (list.length * 0.25));
 			
