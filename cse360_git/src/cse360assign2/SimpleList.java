@@ -1,12 +1,17 @@
 /**
  * Name: Sheba Philip
  * Class ID: 233
- * Assignment 1
+ * Assignment 2
  * Description: The SimpleList class contains a constructor, add method, remove method, count method, toString method,
- * and search method. In this class, the variable list is an array with the maximum size of 10 and count keeps track of 
- * the total amount of elements in the array. The add method adds an element to the array and remove removes an
- * element from the array. We can search for an element, know how much elements are in an array, and print out the 
- * array.
+ * search method, append, first, last and size methods. In this class, the variable list is an array with the maximum 
+ * size of 10 and count keeps track of the total amount of elements in the array. The add method adds an element to the
+ * array and remove removes an element from the array. We can search for an element, know how much elements are in an array, 
+ * and print out the array. The append method is the same as the add method except the number gets added to the end. 
+ * The append and add method both increase the size of the array by 50% if the array is full.
+ * The first method returns the first element in the array. The last method returns the last element of the array.
+ * The size method keeps track of the size of the array.
+ * 
+ * URL : https://github.com/sgphil/SimpleList
  * 
  */
 package cse360assign2;
@@ -104,7 +109,7 @@ public class SimpleList {
 			}
 		}
 		
-		if((list.length-count) > (list.length * 0.25)) {
+		if((list.length-count) > (list.length * 0.25) && (list.length >= 1)) {
 			
 			int newSize = (int) (list.length - (int) (list.length * 0.25));
 			
@@ -183,11 +188,8 @@ public class SimpleList {
 	public void append (int number) {
 		
 		if(count < list.length) {
-			System.out.println("count is: "+count);
 			count ++;
 			list[count-1] = number;
-			System.out.println("count after is: "+count);
-			System.out.println("number is "+number);
 			
 			
 		}else {
@@ -219,6 +221,9 @@ public class SimpleList {
  * @return			the first element in the array, list.
  */
 	public int first() {
+		if(count == 0) {
+			return -1;
+		}
 		return list[0];
 	}
 	
@@ -228,6 +233,9 @@ public class SimpleList {
  * @return			the last element in the array, list.
  */
 	public int last() {
+		if(count == 0) {
+			return -1;
+		}
 		return list[count-1];
 	}
 	
